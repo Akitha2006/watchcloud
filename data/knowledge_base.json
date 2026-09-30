@@ -1,0 +1,34 @@
+[
+  {
+    "incident_id": "KB-001",
+    "incident_type": "DDOS_TRAFFIC",
+    "symptoms": "High request volume exceeding rate thresholds from single or distributed IPs",
+    "possible_causes": "Abnormal request rate / HTTP flood attack pattern targeting web application endpoints.",
+    "previous_actions": "Temporarily block suspicious source IP and enforce global endpoint rate-limiting.",
+    "verification_steps": "Monitor incoming traffic rate for 10 seconds to confirm request count drops below warning threshold."
+  },
+  {
+    "incident_id": "KB-002",
+    "incident_type": "SQL_INJECTION",
+    "symptoms": "Input parameters containing SQL keywords such as UNION, SELECT, DROP, OR 1=1",
+    "possible_causes": "Malicious payload attempt in HTTP request parameters attempting database manipulation.",
+    "previous_actions": "Reject payload, log security alert, and temporarily restrict client identifier.",
+    "verification_steps": "Verify subsequent requests with sanitized inputs process normally while malicious patterns are blocked."
+  },
+  {
+    "incident_id": "KB-003",
+    "incident_type": "BRUTE_FORCE",
+    "symptoms": "Multiple consecutive failed authentication attempts within short timeframe",
+    "possible_causes": "Credential brute-force or dictionary attack targeting user authentication endpoints.",
+    "previous_actions": "Lock targeted user account temporarily and reset failed attempt counter.",
+    "verification_steps": "Attempt login to verify account state is locked and subsequent brute-force attempts are rejected instantly."
+  },
+  {
+    "incident_id": "KB-004",
+    "incident_type": "PRIVILEGE_ESCALATION",
+    "symptoms": "Unauthorized attempt to elevate user role from normal_user to admin",
+    "possible_causes": "Unauthorized role alteration request bypassing role-based access control (RBAC).",
+    "previous_actions": "Deny role change request, revoke elevated token, and restore original user role.",
+    "verification_steps": "Check active user session permissions to ensure role remains locked to normal_user."
+  }
+]

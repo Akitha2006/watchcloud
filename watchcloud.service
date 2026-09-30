@@ -1,0 +1,15 @@
+[Unit]
+Description=WatchCloud Self-Healing Infrastructure FastAPI Application
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/watchcloud
+ExecStart=/home/ec2-user/watchcloud/venv/bin/python app.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/home/ec2-user/watchcloud
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchCloud Application - User Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="brand">
+                <div class="logo-icon">👤</div>
+                <div>
+                    <h1>WATCHCLOUD APPLICATION</h1>
+                    <p class="subtitle">Welcome, <strong>{{ username }}</strong> (Role: <span class="role-badge role-user">USER</span>)</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="/dashboard" class="btn btn-outline btn-sm" target="_blank">🌐 WatchCloud Monitoring</a>
+                <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+            </div>
+        </header>
+
+        {% if alert_msg %}
+        <div class="alert alert-danger" id="security-alert-box">
+            <strong>⛔ Security Alert:</strong> {{ alert_msg }}
+        </div>
+        {% endif %}
+
+        <!-- USER SERVICES GRID -->
+        <div class="metrics-grid">
+            <div class="card">
+                <h3>👤 My Profile</h3>
+                <p class="section-desc">View your account credentials, role permissions, and active session status.</p>
+                <div class="profile-details">
+                    <p><strong>Username:</strong> {{ username }}</p>
+                    <p><strong>Account Role:</strong> USER</p>
+                    <p><strong>Status:</strong> Active & Authenticated</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📁 My Requests</h3>
+                <p class="section-desc">Submit and track your user cloud service requests.</p>
+                <button class="btn btn-sm btn-outline" onclick="alert('User requests portal: No pending requests.')">View Requests (0)</button>
+            </div>
+
+            <div class="card">
+                <h3>⚙️ User Services</h3>
+                <p class="section-desc">Access standard cloud application services available to basic users.</p>
+                <button class="btn btn-sm btn-primary" onclick="alert('Standard Cloud Service: Healthy.')">Launch Standard Service</button>
+            </div>
+        </div>
+
+        <!-- APPLICATION SEARCH FORM (For safe SQL Injection Testing) -->
+        <div class="card" style="margin-top: 20px;">
+            <h2>🔍 Search Application Database</h2>
+            <p class="section-desc">Search records across user catalog files. Input parameters are safely validated by WatchCloud security filter.</p>
+            <form action="/api/search" method="POST" style="display: flex; gap: 12px; margin-top: 12px;" onsubmit="handleSearchSubmit(event)">
+                <input type="text" id="search_query" name="query" placeholder="Enter search term (e.g. documents, invoices, or test string)..." style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: #0f172a; color: white;" required>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div id="search-results-box" style="margin-top: 12px; display: none;"></div>
+        </div>
+
+        <!-- PROTECTED ADMIN ACCESS SECTION (Privilege Escalation Demo) -->
+        <div class="card admin-access-card" style="margin-top: 20px; border-left: 4px solid var(--accent-red);">
+            <h2>🛡️ Protected Administration Panel</h2>
+            <p class="section-desc">Notice: Access to this administrative zone requires elevated <strong>ADMIN</strong> role credentials.</p>
+            <div style="margin-top: 14px;">
+                <form action="/admin/dashboard" method="GET" style="display: inline;">
+                    <button type="submit" class="btn btn-danger btn-lg">
+                        🔑 Access Admin Panel
+                    </button>
+                </form>
+                <span style="margin-left: 12px; font-size: 13px; color: var(--text-secondary);">
+                    (Clicking this button as a normal <code>USER</code> triggers an authorization check & safe privilege-escalation incident detection).
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    async function handleSearchSubmit(e) {
+        e.preventDefault();
+        const query = document.getElementById('search_query').value;
+        const resBox = document.getElementById('search-results-box');
+        resBox.style.display = 'block';
+        resBox.innerHTML = '<p style="color: var(--accent-blue);">Searching database...</p>';
+
+        try {
+            const res = await fetch('/api/search', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({query: query})
+            });
+            const data = await res.json();
+            if (res.status === 400 || data.blocked) {
+                resBox.innerHTML = `<div class="alert alert-danger">⚠️ ${data.detail || 'Malicious input payload detected and blocked by WatchCloud!'}</div>`;
+            } else {
+                resBox.innerHTML = `<div class="alert alert-success">✅ ${data.message || 'Search query executed safely.'}</div>`;
+            }
+        } catch (err) {
+            resBox.innerHTML = `<div class="alert alert-danger">Error processing search request: ${err}</div>`;
+        }
+    }
+    </script>
+</body>
+</html>

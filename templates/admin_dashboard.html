@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchCloud Application - Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="brand">
+                <div class="logo-icon">👑</div>
+                <div>
+                    <h1>ADMIN DASHBOARD</h1>
+                    <p class="subtitle">Welcome, <strong>{{ username }}</strong> (Role: <span class="role-badge role-admin">ADMIN</span>)</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="/dashboard" class="btn btn-outline btn-sm" target="_blank">🌐 WatchCloud Monitoring</a>
+                <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+            </div>
+        </header>
+
+        <!-- SYSTEM OVERVIEW -->
+        <div class="summary-grid">
+            <div class="summary-card total">
+                <div class="summary-title">Registered Users</div>
+                <div class="summary-num">{{ total_users }}</div>
+            </div>
+            <div class="summary-card resolved">
+                <div class="summary-title">Application Status</div>
+                <div class="summary-num" style="font-size: 20px; color: var(--accent-green); margin-top: 10px;">HEALTHY</div>
+            </div>
+            <div class="summary-card detected">
+                <div class="summary-title">Security Incidents</div>
+                <div class="summary-num">{{ total_incidents }}</div>
+            </div>
+        </div>
+
+        <!-- ADMIN CONTROLS -->
+        <div class="card" style="margin-top: 20px;">
+            <h2>🛠️ Administrative Control Panel</h2>
+            <p class="section-desc">Manage system parameters, view user accounts, and inspect security reports.</p>
+            <div class="sim-buttons" style="margin-top: 15px;">
+                <button class="btn btn-primary" onclick="alert('User Management: Showing registered accounts.')">👥 Manage Users</button>
+                <button class="btn btn-purple" onclick="window.location.href='/dashboard'">📄 View Security Reports</button>
+                <button class="btn btn-warning" onclick="alert('System Settings: All security policies enforced.')">⚙️ System Settings</button>
+            </div>
+        </div>
+
+        <!-- USER LIST TABLE -->
+        <div class="card" style="margin-top: 20px;">
+            <h2>👥 Registered Application Users</h2>
+            <div class="table-container" style="margin-top: 12px;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Account Status</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in users %}
+                        <tr>
+                            <td>{{ u.id }}</td>
+                            <td><strong>{{ u.username }}</strong></td>
+                            <td><span class="role-badge role-{{ u.role.lower() }}">{{ u.role }}</span></td>
+                            <td>
+                                {% if u.is_locked == 1 %}
+                                <span class="badge badge-HIGH">LOCKED</span>
+                                {% else %}
+                                <span class="badge badge-RESOLVED">ACTIVE</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ u.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

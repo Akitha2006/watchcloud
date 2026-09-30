@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCHCLOUD - Self-Healing Cloud Infrastructure</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="brand">
+                <div class="logo-icon">☁️⚡</div>
+                <div>
+                    <h1>WATCHCLOUD</h1>
+                    <p class="subtitle">Self-Healing Cloud Infrastructure Monitoring Platform</p>
+                </div>
+            </div>
+            <div class="status-badge" id="system-status-badge">
+                <span class="pulse-dot"></span>
+                <span id="status-text">SYSTEM STATUS: HEALTHY</span>
+            </div>
+        </header>
+
+        <!-- LIVE METRICS GRID -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span>CPU Utilization</span>
+                    <span class="metric-icon">💻</span>
+                </div>
+                <div class="metric-value" id="cpu-val">0%</div>
+                <div class="progress-bar"><div class="progress-fill" id="cpu-bar" style="width: 0%;"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span>Memory Usage</span>
+                    <span class="metric-icon">🧠</span>
+                </div>
+                <div class="metric-value" id="memory-val">0%</div>
+                <div class="progress-bar"><div class="progress-fill" id="memory-bar" style="width: 0%;"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span>Disk Utilization</span>
+                    <span class="metric-icon">💾</span>
+                </div>
+                <div class="metric-value" id="disk-val">0%</div>
+                <div class="progress-bar"><div class="progress-fill" id="disk-bar" style="width: 0%;"></div></div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span>Network Received</span>
+                    <span class="metric-icon">🌐</span>
+                </div>
+                <div class="metric-value" id="net-val">0 KB</div>
+                <div class="metric-sub" id="net-sent">Sent: 0 KB</div>
+            </div>
+        </div>
+
+        <!-- INCIDENT SUMMARY CARDS -->
+        <div class="summary-grid">
+            <div class="summary-card total">
+                <div class="summary-title">Total Incidents</div>
+                <div class="summary-num" id="count-total">0</div>
+            </div>
+            <div class="summary-card detected">
+                <div class="summary-title">Detected</div>
+                <div class="summary-num" id="count-detected">0</div>
+            </div>
+            <div class="summary-card in-progress">
+                <div class="summary-title">In Progress</div>
+                <div class="summary-num" id="count-progress">0</div>
+            </div>
+            <div class="summary-card resolved">
+                <div class="summary-title">Self-Healed / Resolved</div>
+                <div class="summary-num" id="count-resolved">0</div>
+            </div>
+        </div>
+
+        <!-- MULTI-AGENT WORKFLOW & ACTIVE INCIDENT STATUS -->
+        <div class="dashboard-grid">
+            <!-- AI AGENT ACTIVITY WORKFLOW CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>🤖 AI Agent Activity Workflow</h2>
+                    <span class="badge badge-LOW" id="agent-pipeline-status">IDLE</span>
+                </div>
+                <div class="agent-stepper" id="agent-stepper">
+                    <div class="agent-step" id="step-detection">
+                        <span class="step-icon">🔍</span>
+                        <div class="step-content">
+                            <strong>Detection Agent</strong>
+                            <p class="step-desc">Monitors log streams & system metrics for anomalies</p>
+                        </div>
+                        <span class="step-status" id="status-detection">Waiting</span>
+                    </div>
+
+                    <div class="agent-step" id="step-rootcause">
+                        <span class="step-icon">🧠</span>
+                        <div class="step-content">
+                            <strong>Root Cause Agent</strong>
+                            <p class="step-desc">Analyzes incident context & probable root cause</p>
+                        </div>
+                        <span class="step-status" id="status-rootcause">Waiting</span>
+                    </div>
+
+                    <div class="agent-step" id="step-rag">
+                        <span class="step-icon">📚</span>
+                        <div class="step-content">
+                            <strong>RAG Knowledge Service</strong>
+                            <p class="step-desc">Retrieves historical resolution signatures</p>
+                        </div>
+                        <span class="step-status" id="status-rag">Waiting</span>
+                    </div>
+
+                    <div class="agent-step" id="step-remediation">
+                        <span class="step-icon">🛡️</span>
+                        <div class="step-content">
+                            <strong>Remediation Agent</strong>
+                            <p class="step-desc">Executes predefined application-level healing</p>
+                        </div>
+                        <span class="step-status" id="status-remediation">Waiting</span>
+                    </div>
+
+                    <div class="agent-step" id="step-verification">
+                        <span class="step-icon">✅</span>
+                        <div class="step-content">
+                            <strong>Verification Agent</strong>
+                            <p class="step-desc">Verifies system recovery & state normalization</p>
+                        </div>
+                        <span class="step-status" id="status-verification">Waiting</span>
+                    </div>
+
+                    <div class="agent-step" id="step-reporting">
+                        <span class="step-icon">📄</span>
+                        <div class="step-content">
+                            <strong>Reporting Agent</strong>
+                            <p class="step-desc">Compiles structured incident summary report</p>
+                        </div>
+                        <span class="step-status" id="status-reporting">Waiting</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURRENT ACTIVE INCIDENT CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>🚨 Latest Incident Details</h2>
+                    <span id="active-inc-badge" class="badge badge-RESOLVED">NO ACTIVE INCIDENTS</span>
+                </div>
+                <div id="active-incident-details">
+                    <p style="color: var(--text-secondary);">System operating under nominal parameters. No active security incidents detected.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECENT INCIDENTS TABLE & LIVE LOGS -->
+        <div class="dashboard-grid">
+            <div class="card grid-span-2">
+                <div class="card-header">
+                    <h2>📋 Recent Incidents Log</h2>
+                    <button class="btn btn-sm btn-outline" onclick="loadIncidents()">🔄 Refresh</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Incident ID</th>
+                                <th>Type</th>
+                                <th>Severity</th>
+                                <th>Timestamp</th>
+                                <th>Status</th>
+                                <th>Report</th>
+                            </tr>
+                        </thead>
+                        <tbody id="incidents-tbody">
+                            <tr><td colspan="6" class="text-center">No incidents recorded yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- LIVE LOG CONSOLE -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📜 Live Application & Security Stream</h2>
+                    <button class="btn btn-sm btn-outline" onclick="loadLogs()">🔄 Refresh</button>
+                </div>
+                <div class="logs-console" id="logs-console">
+                    <div class="log-line">[SYSTEM] WatchCloud continuous monitoring active...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INCIDENT REPORT MODAL -->
+        <div class="modal-overlay" id="report-modal" onclick="closeModal(event)">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">WatchCloud Incident Report</h3>
+                    <button class="close-btn" onclick="closeModalDirect()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <pre id="modal-report-text">Loading report...</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

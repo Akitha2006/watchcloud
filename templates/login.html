@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchCloud Application - Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <div class="auth-card card">
+        <div class="auth-header">
+            <div class="logo-icon">☁️⚡</div>
+            <h1>WATCHCLOUD APPLICATION</h1>
+            <p class="subtitle">Secure Cloud Application Portal</p>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-danger" id="error-alert">{{ error }}</div>
+        {% endif %}
+
+        {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+
+        <form action="/login" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter username (e.g. user or admin)" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Don't have an account? <a href="/register">Register</a></p>
+            <div class="demo-credentials-box">
+                <strong>🔑 Demo Credentials:</strong><br>
+                <span>User: <code>user</code> / <code>user123</code> (Role: USER)</span><br>
+                <span>Admin: <code>admin</code> / <code>admin123</code> (Role: ADMIN)</span>
+            </div>
+            <div style="margin-top: 15px;">
+                <a href="/dashboard" class="btn btn-sm btn-outline">🌐 View WatchCloud Self-Healing Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

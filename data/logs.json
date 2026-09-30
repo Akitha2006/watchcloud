@@ -1,0 +1,405 @@
+[
+  {
+    "timestamp": "2026-09-30 15:04:40 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Denied elevated permissions for account 'user' and restored role to 'USER'.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:28 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:17 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Rejected malicious payload and added source 192.168.1.101 to application security filter blocklist.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0005 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0005",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0005: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0005: Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:04:00 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:37 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0005: [DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified SQL_INJECTION (Severity: HIGH) - ID: INC-0005",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: sql",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0004 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0004",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0004: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0004: Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0004: [DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified DDOS_TRAFFIC (Severity: CRITICAL) - ID: INC-0004",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: ddos",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: privilege",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "WARNING",
+    "event": "UNAUTHORIZED_ADMIN_ACCESS_ATTEMPT",
+    "message": "User 'user' (Role: USER) attempted unauthorized access to ADMIN_PANEL",
+    "source": "AuthorizationService",
+    "metadata": {
+      "user": "user",
+      "requested_resource": "ADMIN_PANEL"
+    }
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'user' (Role: USER) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'admin' (Role: ADMIN) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'user' (Role: USER) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Rejected malicious payload and added source 192.168.1.101 to application security filter blocklist.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0006 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0006",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0006: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0006: Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0006: [DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified SQL_INJECTION (Severity: HIGH) - ID: INC-0006",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: sql",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0005 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0005",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0005: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0005: Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0005: [DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified DDOS_TRAFFIC (Severity: CRITICAL) - ID: INC-0005",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: ddos",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:40 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'user' (Role: USER) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:40 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'admin' (Role: ADMIN) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-30 15:00:40 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'user' (Role: USER) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-24 07:04:53 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0004 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-24 07:04:53 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0004",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-09-24 07:04:53 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0004: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  }
+]

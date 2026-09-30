@@ -1,0 +1,106 @@
+[
+  {
+    "incident_id": "INC-0006",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-09-30 15:04:11 UTC",
+    "source": "192.168.1.100",
+    "description": "Test incident",
+    "evidence": [
+      "5 failed attempts"
+    ],
+    "possible_cause": "",
+    "status": "DETECTED",
+    "remediation": "",
+    "verification": "",
+    "report": ""
+  },
+  {
+    "incident_id": "INC-0005",
+    "type": "SQL_INJECTION",
+    "severity": "HIGH",
+    "timestamp": "2026-09-30 15:03:10 UTC",
+    "source": "192.168.1.100",
+    "description": "Potential SQL Injection attempt detected in input payload from 192.168.1.100.",
+    "evidence": [
+      "Matched malicious patterns: UNION SELECT",
+      "Raw input payload: 'UNION SELECT'",
+      "Source IP: 192.168.1.100"
+    ],
+    "possible_cause": "[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "status": "RESOLVED",
+    "remediation": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:04:11 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0005\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-09-30 15:03:10 UTC\nSource:          192.168.1.100\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 192.168.1.100.\n\nEvidence:\n  - Matched malicious patterns: UNION SELECT\n  - Raw input payload: 'UNION SELECT'\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 192.168.1.100 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:04:11 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0004",
+    "type": "DDOS_TRAFFIC",
+    "severity": "CRITICAL",
+    "timestamp": "2026-09-30 15:03:09 UTC",
+    "source": "192.168.1.100",
+    "description": "Abnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.",
+    "evidence": [
+      "Request rate: 60 req/sec",
+      "Critical threshold: >50 req/sec",
+      "Source IP: 192.168.1.100"
+    ],
+    "possible_cause": "[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
+    "status": "RESOLVED",
+    "remediation": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "verification": "[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:03:10 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0004\nIncident Type:   DDOS_TRAFFIC\nSeverity:        CRITICAL\nDetected At:     2026-09-30 15:03:09 UTC\nSource:          192.168.1.100\n\nDescription:\nAbnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.\n\nEvidence:\n  - Request rate: 60 req/sec\n  - Critical threshold: >50 req/sec\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.\n\nRemediation Action:\nApplied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.\n\nVerification Result:\n[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:03:10 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0007",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "source": "192.168.1.100",
+    "description": "Test incident",
+    "evidence": [
+      "5 failed attempts"
+    ],
+    "possible_cause": "",
+    "remediation": "",
+    "verification": "",
+    "status": "DETECTED",
+    "report": ""
+  },
+  {
+    "incident_id": "INC-0006",
+    "type": "SQL_INJECTION",
+    "severity": "HIGH",
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "source": "192.168.1.100",
+    "description": "Potential SQL Injection attempt detected in input payload from 192.168.1.100.",
+    "evidence": [
+      "Matched malicious patterns: UNION SELECT",
+      "Raw input payload: 'UNION SELECT'",
+      "Source IP: 192.168.1.100"
+    ],
+    "possible_cause": "[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "remediation": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:00:41 UTC)",
+    "status": "RESOLVED",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0006\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-09-30 15:00:41 UTC\nSource:          192.168.1.100\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 192.168.1.100.\n\nEvidence:\n  - Matched malicious patterns: UNION SELECT\n  - Raw input payload: 'UNION SELECT'\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 192.168.1.100 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:00:41 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0005",
+    "type": "DDOS_TRAFFIC",
+    "severity": "CRITICAL",
+    "timestamp": "2026-09-30 15:00:41 UTC",
+    "source": "192.168.1.100",
+    "description": "Abnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.",
+    "evidence": [
+      "Request rate: 60 req/sec",
+      "Critical threshold: >50 req/sec",
+      "Source IP: 192.168.1.100"
+    ],
+    "possible_cause": "[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
+    "remediation": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "verification": "[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:00:41 UTC)",
+    "status": "RESOLVED",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0005\nIncident Type:   DDOS_TRAFFIC\nSeverity:        CRITICAL\nDetected At:     2026-09-30 15:00:41 UTC\nSource:          192.168.1.100\n\nDescription:\nAbnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.\n\nEvidence:\n  - Request rate: 60 req/sec\n  - Critical threshold: >50 req/sec\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.\n\nRemediation Action:\nApplied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.\n\nVerification Result:\n[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:00:41 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  }
+]
