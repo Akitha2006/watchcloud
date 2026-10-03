@@ -1,12 +1,14 @@
 from incidents.reports import generate_incident_report
 from incidents.manager import incident_manager
 from monitoring.log_monitor import log_event
+from backend.email_service import send_incident_email
 
 class ReportingAgent:
     """
     Reporting Agent Responsibilities:
     - create human-readable incident report
     - include incident details, evidence, root cause, remediation, verification result
+    - send email alert to administrator / user
     """
     def generate_report(self, incident: dict) -> dict:
         report_text = generate_incident_report(incident)
@@ -21,6 +23,9 @@ class ReportingAgent:
             f"ReportingAgent generated final incident report for {incident['incident_id']}",
             source="ReportingAgent"
         )
+
+        # Send Email Security Alert Notification
+        send_incident_email(updated_incident)
 
         return updated_incident
 

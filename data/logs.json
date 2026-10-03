@@ -1,289 +1,297 @@
 [
   {
-    "timestamp": "2026-09-30 15:04:40 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Denied elevated permissions for account 'user' and restored role to 'USER'.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:28 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:17 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Rejected malicious payload and added source 192.168.1.101 to application security filter blocklist.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_COMPLETE",
-    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0005 (Final Status: RESOLVED)",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "level": "INFO",
-    "event": "REPORT_GENERATED",
-    "message": "ReportingAgent generated final incident report for INC-0005",
-    "source": "ReportingAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "level": "INFO",
-    "event": "INCIDENT_VERIFIED",
-    "message": "VerificationAgent verified INC-0005: Status=RESOLVED",
-    "source": "VerificationAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_EXECUTED",
-    "message": "RemediationAgent executed action for INC-0005: Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
-    "source": "RemediationAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:04:00 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:37 UTC",
-    "level": "INFO",
-    "event": "ROOT_CAUSE_ANALYSIS",
-    "message": "RootCauseAgent analyzed INC-0005: [DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
-    "source": "RootCauseAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
+    "timestamp": "2026-10-01 09:52:36 UTC",
     "level": "WARNING",
-    "event": "INCIDENT_DETECTED",
-    "message": "DetectionAgent identified SQL_INJECTION (Severity: HIGH) - ID: INC-0005",
-    "source": "DetectionAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_START",
-    "message": "CoordinatorAgent initiated workflow for category: sql",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_COMPLETE",
-    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0004 (Final Status: RESOLVED)",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "level": "INFO",
-    "event": "REPORT_GENERATED",
-    "message": "ReportingAgent generated final incident report for INC-0004",
-    "source": "ReportingAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "level": "INFO",
-    "event": "INCIDENT_VERIFIED",
-    "message": "VerificationAgent verified INC-0004: Status=RESOLVED",
-    "source": "VerificationAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_EXECUTED",
-    "message": "RemediationAgent executed action for INC-0004: Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "ROOT_CAUSE_ANALYSIS",
-    "message": "RootCauseAgent analyzed INC-0004: [DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
-    "source": "RootCauseAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "WARNING",
-    "event": "INCIDENT_DETECTED",
-    "message": "DetectionAgent identified DDOS_TRAFFIC (Severity: CRITICAL) - ID: INC-0004",
-    "source": "DetectionAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_START",
-    "message": "CoordinatorAgent initiated workflow for category: ddos",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_START",
-    "message": "CoordinatorAgent initiated workflow for category: privilege",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "WARNING",
-    "event": "UNAUTHORIZED_ADMIN_ACCESS_ATTEMPT",
-    "message": "User 'user' (Role: USER) attempted unauthorized access to ADMIN_PANEL",
-    "source": "AuthorizationService",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 1) from 127.0.0.1",
+    "source": "AuthService",
     "metadata": {
-      "user": "user",
-      "requested_resource": "ADMIN_PANEL"
+      "username": "123",
+      "failed_count": 1
     }
   },
   {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'user' (Role: USER) logged in successfully.",
+    "timestamp": "2026-10-01 09:52:28 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'pup123' (Failed count: 1) from 127.0.0.1",
     "source": "AuthService",
-    "metadata": {}
+    "metadata": {
+      "username": "pup123",
+      "failed_count": 1
+    }
   },
   {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'admin' (Role: ADMIN) logged in successfully.",
-    "source": "AuthService",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:03:09 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'user' (Role: USER) logged in successfully.",
-    "source": "AuthService",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Rejected malicious payload and added source 192.168.1.101 to application security filter blocklist.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:24 UTC",
     "level": "INFO",
     "event": "COORDINATOR_COMPLETE",
-    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0006 (Final Status: RESOLVED)",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0013 (Final Status: RESOLVED)",
     "source": "CoordinatorAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:24 UTC",
     "level": "INFO",
     "event": "REPORT_GENERATED",
-    "message": "ReportingAgent generated final incident report for INC-0006",
+    "message": "ReportingAgent generated final incident report for INC-0013",
     "source": "ReportingAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:23 UTC",
     "level": "INFO",
     "event": "INCIDENT_VERIFIED",
-    "message": "VerificationAgent verified INC-0006: Status=RESOLVED",
+    "message": "VerificationAgent verified INC-0013: Status=RESOLVED",
     "source": "VerificationAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:23 UTC",
     "level": "INFO",
     "event": "REMEDIATION_EXECUTED",
-    "message": "RemediationAgent executed action for INC-0006: Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "message": "RemediationAgent executed action for INC-0013: Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
     "source": "RemediationAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:23 UTC",
     "level": "INFO",
     "event": "REMEDIATION_ACTION",
-    "message": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
+    "message": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
     "source": "RemediationEngine",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:23 UTC",
     "level": "INFO",
     "event": "ROOT_CAUSE_ANALYSIS",
-    "message": "RootCauseAgent analyzed INC-0006: [DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "message": "RootCauseAgent analyzed INC-0013: [DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
     "source": "RootCauseAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:22 UTC",
     "level": "WARNING",
     "event": "INCIDENT_DETECTED",
-    "message": "DetectionAgent identified SQL_INJECTION (Severity: HIGH) - ID: INC-0006",
+    "message": "DetectionAgent identified BRUTE_FORCE (Severity: HIGH) - ID: INC-0013",
     "source": "DetectionAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 09:52:22 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: brute_force",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:22 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'puppy' (Failed count: 5) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "puppy",
+      "failed_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0012 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0012",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0012: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0012: Temporarily locked account '123' and reset failed authentication attempt counter.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Temporarily locked account '123' and reset failed authentication attempt counter.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:21 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0012: [DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:20 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified BRUTE_FORCE (Severity: HIGH) - ID: INC-0012",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:20 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_START",
+    "message": "CoordinatorAgent initiated workflow for category: brute_force",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:52:20 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 5) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "123",
+      "failed_count": 5
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:52:15 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 4) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "123",
+      "failed_count": 4
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:52:06 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 3) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "123",
+      "failed_count": 3
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:51:59 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 2) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "123",
+      "failed_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:51:49 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user '123' (Failed count: 1) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "123",
+      "failed_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-10-01 09:50:54 UTC",
+    "level": "INFO",
+    "event": "USER_REGISTERED",
+    "message": "New user '123' registered with USER role.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 09:49:54 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'puppy' (Failed count: 4) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "puppy",
+      "failed_count": 4
+    }
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0011 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0011",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0011: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0011: Rejected malicious payload and added source 127.0.0.1 to application security filter blocklist.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_ACTION",
+    "message": "Rejected malicious payload and added source 127.0.0.1 to application security filter blocklist.",
+    "source": "RemediationEngine",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "INFO",
+    "event": "ROOT_CAUSE_ANALYSIS",
+    "message": "RootCauseAgent analyzed INC-0011: [DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "source": "RootCauseAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "WARNING",
+    "event": "INCIDENT_DETECTED",
+    "message": "DetectionAgent identified SQL_INJECTION (Severity: HIGH) - ID: INC-0011",
+    "source": "DetectionAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:36 UTC",
     "level": "INFO",
     "event": "COORDINATOR_START",
     "message": "CoordinatorAgent initiated workflow for category: sql",
@@ -291,114 +299,139 @@
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "level": "WARNING",
+    "event": "SQL_INJECTION_DETECTED",
+    "message": "SQL Injection pattern detected in search query: '' OR 1=1; DROP TABLE users;--'",
+    "source": "SecurityFilter",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:20:12 UTC",
+    "level": "INFO",
+    "event": "USER_LOGIN_SUCCESS",
+    "message": "User 'mounika' (Role: USER) logged in successfully.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:19:57 UTC",
+    "level": "INFO",
+    "event": "USER_REGISTERED",
+    "message": "New user 'mounika' registered with USER role.",
+    "source": "AuthService",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:19:35 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'puppy' (Failed count: 3) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "puppy",
+      "failed_count": 3
+    }
+  },
+  {
+    "timestamp": "2026-10-01 07:19:31 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'puppy' (Failed count: 2) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "puppy",
+      "failed_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-10-01 07:06:03 UTC",
+    "level": "WARNING",
+    "event": "FAILED_LOGIN_ATTEMPT",
+    "message": "Failed login attempt for user 'puppy' (Failed count: 1) from 127.0.0.1",
+    "source": "AuthService",
+    "metadata": {
+      "username": "puppy",
+      "failed_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "COORDINATOR_COMPLETE",
-    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0005 (Final Status: RESOLVED)",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0008 (Final Status: RESOLVED)",
     "source": "CoordinatorAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "REPORT_GENERATED",
-    "message": "ReportingAgent generated final incident report for INC-0005",
+    "message": "ReportingAgent generated final incident report for INC-0008",
     "source": "ReportingAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "INCIDENT_VERIFIED",
-    "message": "VerificationAgent verified INC-0005: Status=RESOLVED",
+    "message": "VerificationAgent verified INC-0008: Status=RESOLVED",
     "source": "VerificationAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_EXECUTED",
-    "message": "RemediationAgent executed action for INC-0005: Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "REMEDIATION_ACTION",
-    "message": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "source": "RemediationEngine",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "ROOT_CAUSE_ANALYSIS",
-    "message": "RootCauseAgent analyzed INC-0005: [DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
-    "source": "RootCauseAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "WARNING",
-    "event": "INCIDENT_DETECTED",
-    "message": "DetectionAgent identified DDOS_TRAFFIC (Severity: CRITICAL) - ID: INC-0005",
-    "source": "DetectionAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:41 UTC",
-    "level": "INFO",
-    "event": "COORDINATOR_START",
-    "message": "CoordinatorAgent initiated workflow for category: ddos",
-    "source": "CoordinatorAgent",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:40 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'user' (Role: USER) logged in successfully.",
-    "source": "AuthService",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:40 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'admin' (Role: ADMIN) logged in successfully.",
-    "source": "AuthService",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-30 15:00:40 UTC",
-    "level": "INFO",
-    "event": "USER_LOGIN_SUCCESS",
-    "message": "User 'user' (Role: USER) logged in successfully.",
-    "source": "AuthService",
-    "metadata": {}
-  },
-  {
-    "timestamp": "2026-09-24 07:04:53 UTC",
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "COORDINATOR_COMPLETE",
-    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0004 (Final Status: RESOLVED)",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0009 (Final Status: RESOLVED)",
     "source": "CoordinatorAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-24 07:04:53 UTC",
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "REPORT_GENERATED",
-    "message": "ReportingAgent generated final incident report for INC-0004",
+    "message": "ReportingAgent generated final incident report for INC-0009",
     "source": "ReportingAgent",
     "metadata": {}
   },
   {
-    "timestamp": "2026-09-24 07:04:53 UTC",
+    "timestamp": "2026-10-01 07:06:00 UTC",
     "level": "INFO",
     "event": "INCIDENT_VERIFIED",
-    "message": "VerificationAgent verified INC-0004: Status=RESOLVED",
+    "message": "VerificationAgent verified INC-0009: Status=RESOLVED",
+    "source": "VerificationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:06:00 UTC",
+    "level": "INFO",
+    "event": "COORDINATOR_COMPLETE",
+    "message": "CoordinatorAgent completed self-healing lifecycle for INC-0007 (Final Status: RESOLVED)",
+    "source": "CoordinatorAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:06:00 UTC",
+    "level": "INFO",
+    "event": "REMEDIATION_EXECUTED",
+    "message": "RemediationAgent executed action for INC-0008: Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "source": "RemediationAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:06:00 UTC",
+    "level": "INFO",
+    "event": "REPORT_GENERATED",
+    "message": "ReportingAgent generated final incident report for INC-0007",
+    "source": "ReportingAgent",
+    "metadata": {}
+  },
+  {
+    "timestamp": "2026-10-01 07:06:00 UTC",
+    "level": "INFO",
+    "event": "INCIDENT_VERIFIED",
+    "message": "VerificationAgent verified INC-0007: Status=RESOLVED",
     "source": "VerificationAgent",
     "metadata": {}
   }

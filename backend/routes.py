@@ -67,10 +67,38 @@ def login_page(request: Request, error: str = None, message: str = None):
 def login_action(
     request: Request,
     username: str = Form(...),
-    password: str = Form(...)
+    password: str = Form(...),
+    login_role: str = Form("USER")
 ):
     source_ip = request.client.host if request.client else "127.0.0.1"
     user, reason = authenticate_user(username, password)
+
+    # CHECK IF USER ATTEMPTED ADMIN LOGIN PORTAL
+    if login_role == "ADMIN":
+        if not user or user["role"] != "ADMIN":
+            log_event(
+                "WARNING",
+                "UNAUTHORIZED_ADMIN_LOGIN_ATTEMPT",
+                f"Unauthorized Admin login attempt for username '{username}' from IP {source_ip}",
+                source="AuthService",
+                metadata={"username": username, "login_role": login_role}
+            )
+
+            # Trigger WatchCloud Privilege Escalation Security Incident
+            sim_data = {
+                "source_ip": source_ip,
+                "username": username,
+                "current_role": "USER",
+                "target_role": "ADMIN"
+            }
+            coordinator_agent.handle_incident_simulation("privilege", sim_data)
+
+            return templates.TemplateResponse(
+                request=request,
+                name="login.html",
+                context={"error": f"Access Denied: Admin login failed for '{username}'. Unauthorized Admin access attempt detected and logged by WatchCloud!"},
+                status_code=400
+            )
 
     if not user:
         # Track failed login attempt for Brute Force Detection

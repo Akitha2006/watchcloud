@@ -1,37 +1,172 @@
 [
   {
-    "incident_id": "INC-0006",
+    "incident_id": "INC-0013",
     "type": "BRUTE_FORCE",
     "severity": "HIGH",
-    "timestamp": "2026-09-30 15:04:11 UTC",
-    "source": "192.168.1.100",
-    "description": "Test incident",
+    "timestamp": "2026-10-01 09:52:22 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
     "evidence": [
-      "5 failed attempts"
+      "Consecutive failed attempts: 5",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
     ],
-    "possible_cause": "",
-    "status": "DETECTED",
-    "remediation": "",
-    "verification": "",
-    "report": ""
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 09:52:23 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0013\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 09:52:22 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 5\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 09:52:23 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   },
   {
-    "incident_id": "INC-0005",
+    "incident_id": "INC-0012",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 09:52:20 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account '123' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 5",
+      "Incident threshold: 5",
+      "Target user: '123'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account '123' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account '123' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 09:52:21 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0012\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 09:52:20 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account '123' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 5\n  - Incident threshold: 5\n  - Target user: '123'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account '123' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account '123' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 09:52:21 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0011",
     "type": "SQL_INJECTION",
     "severity": "HIGH",
-    "timestamp": "2026-09-30 15:03:10 UTC",
-    "source": "192.168.1.100",
-    "description": "Potential SQL Injection attempt detected in input payload from 192.168.1.100.",
+    "timestamp": "2026-10-01 07:20:36 UTC",
+    "source": "127.0.0.1",
+    "description": "Potential SQL Injection attempt detected in input payload from 127.0.0.1.",
     "evidence": [
-      "Matched malicious patterns: UNION SELECT",
-      "Raw input payload: 'UNION SELECT'",
-      "Source IP: 192.168.1.100"
+      "Matched malicious patterns: ' OR, DROP TABLE, ;--, OR 1=1, --",
+      "Raw input payload: '' OR 1=1; DROP TABLE users;--'",
+      "Source IP: 127.0.0.1"
     ],
     "possible_cause": "[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
     "status": "RESOLVED",
-    "remediation": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
-    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:04:11 UTC)",
-    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0005\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-09-30 15:03:10 UTC\nSource:          192.168.1.100\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 192.168.1.100.\n\nEvidence:\n  - Matched malicious patterns: UNION SELECT\n  - Raw input payload: 'UNION SELECT'\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 192.168.1.100 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:04:11 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+    "remediation": "Rejected malicious payload and added source 127.0.0.1 to application security filter blocklist.",
+    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 127.0.0.1 filtered. (Verified at 2026-10-01 07:20:36 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0011\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-10-01 07:20:36 UTC\nSource:          127.0.0.1\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 127.0.0.1.\n\nEvidence:\n  - Matched malicious patterns: ' OR, DROP TABLE, ;--, OR 1=1, --\n  - Raw input payload: '' OR 1=1; DROP TABLE users;--'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 127.0.0.1 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 127.0.0.1 filtered. (Verified at 2026-10-01 07:20:36 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0010",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 07:05:58 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 6",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0010\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 07:05:58 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 6\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0009",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 07:05:58 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 8",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:06:00 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0009\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 07:05:58 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 8\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:06:00 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0008",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 07:05:58 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 9",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:06:00 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0008\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 07:05:58 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 9\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:06:00 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0007",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 07:05:53 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 7",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0007\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 07:05:53 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 7\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0006",
+    "type": "BRUTE_FORCE",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 07:05:47 UTC",
+    "source": "127.0.0.1",
+    "description": "Brute force login attack detected against user account 'puppy' from IP 127.0.0.1.",
+    "evidence": [
+      "Consecutive failed attempts: 5",
+      "Incident threshold: 5",
+      "Target user: 'puppy'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "status": "RESOLVED",
+    "remediation": "Temporarily locked account 'puppy' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0006\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 07:05:47 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'puppy' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 5\n  - Incident threshold: 5\n  - Target user: 'puppy'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'puppy' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'puppy' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 07:05:59 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+  },
+  {
+    "incident_id": "INC-0008",
+    "type": "SQL_INJECTION",
+    "severity": "HIGH",
+    "timestamp": "2026-10-01 06:09:33 UTC",
+    "source": "127.0.0.1",
+    "description": "Potential SQL Injection attempt detected in input payload from 127.0.0.1.",
+    "evidence": [
+      "Matched malicious patterns: ' OR, DROP TABLE, ;--, OR 1=1, --",
+      "Raw input payload: '' OR 1=1; DROP TABLE users;--'",
+      "Source IP: 127.0.0.1"
+    ],
+    "possible_cause": "[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
+    "remediation": "Rejected malicious payload and added source 127.0.0.1 to application security filter blocklist.",
+    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 127.0.0.1 filtered. (Verified at 2026-10-01 06:09:33 UTC)",
+    "status": "RESOLVED",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0008\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-10-01 06:09:33 UTC\nSource:          127.0.0.1\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 127.0.0.1.\n\nEvidence:\n  - Matched malicious patterns: ' OR, DROP TABLE, ;--, OR 1=1, --\n  - Raw input payload: '' OR 1=1; DROP TABLE users;--'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 127.0.0.1 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 127.0.0.1 filtered. (Verified at 2026-10-01 06:09:33 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   },
   {
     "incident_id": "INC-0004",
@@ -46,9 +181,9 @@
       "Source IP: 192.168.1.100"
     ],
     "possible_cause": "[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
-    "status": "RESOLVED",
     "remediation": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
     "verification": "[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:03:10 UTC)",
+    "status": "RESOLVED",
     "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0004\nIncident Type:   DDOS_TRAFFIC\nSeverity:        CRITICAL\nDetected At:     2026-09-30 15:03:09 UTC\nSource:          192.168.1.100\n\nDescription:\nAbnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.\n\nEvidence:\n  - Request rate: 60 req/sec\n  - Critical threshold: >50 req/sec\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.\n\nRemediation Action:\nApplied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.\n\nVerification Result:\n[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:03:10 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   },
   {
@@ -61,11 +196,11 @@
     "evidence": [
       "5 failed attempts"
     ],
-    "possible_cause": "",
-    "remediation": "",
-    "verification": "",
-    "status": "DETECTED",
-    "report": ""
+    "possible_cause": "[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.",
+    "remediation": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-10-01 06:57:28 UTC)",
+    "status": "RESOLVED",
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0007\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-10-01 06:56:27 UTC\nSource:          192.168.1.100\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 192.168.1.100.\n\nEvidence:\n  - Matched malicious patterns: UNION SELECT\n  - Raw input payload: 'UNION SELECT'\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 192.168.1.100 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-10-01 06:57:28 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   },
   {
     "incident_id": "INC-0006",
@@ -80,10 +215,10 @@
       "Source IP: 192.168.1.100"
     ],
     "possible_cause": "[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).",
-    "remediation": "Rejected malicious payload and added source 192.168.1.100 to application security filter blocklist.",
-    "verification": "[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:00:41 UTC)",
+    "remediation": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
+    "verification": "[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-10-01 06:56:27 UTC)",
     "status": "RESOLVED",
-    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0006\nIncident Type:   SQL_INJECTION\nSeverity:        HIGH\nDetected At:     2026-09-30 15:00:41 UTC\nSource:          192.168.1.100\n\nDescription:\nPotential SQL Injection attempt detected in input payload from 192.168.1.100.\n\nEvidence:\n  - Matched malicious patterns: UNION SELECT\n  - Raw input payload: 'UNION SELECT'\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Malicious SQL syntax patterns detected in incoming request parameters. - Unsanitized user payload contained database query keywords (e.g. UNION SELECT, OR 1=1).\n\nRemediation Action:\nRejected malicious payload and added source 192.168.1.100 to application security filter blocklist.\n\nVerification Result:\n[RESOLVED] Verified: Malicious query payload rejected and client 192.168.1.100 filtered. (Verified at 2026-09-30 15:00:41 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0006\nIncident Type:   DDOS_TRAFFIC\nSeverity:        CRITICAL\nDetected At:     2026-10-01 06:55:59 UTC\nSource:          192.168.1.100\n\nDescription:\nAbnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.\n\nEvidence:\n  - Request rate: 60 req/sec\n  - Critical threshold: >50 req/sec\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.\n\nRemediation Action:\nApplied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.\n\nVerification Result:\n[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-10-01 06:56:27 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   },
   {
     "incident_id": "INC-0005",
@@ -98,9 +233,9 @@
       "Source IP: 192.168.1.100"
     ],
     "possible_cause": "[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.",
-    "remediation": "Applied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.",
-    "verification": "[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:00:41 UTC)",
+    "remediation": "Temporarily locked account 'user' and reset failed authentication attempt counter.",
+    "verification": "[RESOLVED] Verified: Account 'user' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 06:07:24 UTC)",
     "status": "RESOLVED",
-    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0005\nIncident Type:   DDOS_TRAFFIC\nSeverity:        CRITICAL\nDetected At:     2026-09-30 15:00:41 UTC\nSource:          192.168.1.100\n\nDescription:\nAbnormal high request volume (60 req/sec) detected from source IP 192.168.1.100.\n\nEvidence:\n  - Request rate: 60 req/sec\n  - Critical threshold: >50 req/sec\n  - Source IP: 192.168.1.100\n\nPossible Cause:\n[DEMO] Abnormal request rate surge from simulated traffic source. - Request volume exceeded safe configured threshold, indicating automated HTTP flood traffic.\n\nRemediation Action:\nApplied application rate-limiting rule and added 192.168.1.100 to temporary blocked list.\n\nVerification Result:\n[RESOLVED] Verified: Rate-limiting active & traffic from 192.168.1.100 blocked. Excess request flood neutralized. (Verified at 2026-09-30 15:00:41 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
+    "report": "==========================================\nWATCHCLOUD INCIDENT REPORT\n==========================================\nIncident ID:     INC-0005\nIncident Type:   BRUTE_FORCE\nSeverity:        HIGH\nDetected At:     2026-10-01 06:06:51 UTC\nSource:          127.0.0.1\n\nDescription:\nBrute force login attack detected against user account 'user' from IP 127.0.0.1.\n\nEvidence:\n  - Consecutive failed attempts: 5\n  - Incident threshold: 5\n  - Target user: 'user'\n  - Source IP: 127.0.0.1\n\nPossible Cause:\n[DEMO] Repeated unauthorized authentication attempts against targeted user account. - Multiple consecutive failed login attempts exceeded the security threshold.\n\nRemediation Action:\nTemporarily locked account 'user' and reset failed authentication attempt counter.\n\nVerification Result:\n[RESOLVED] Verified: Account 'user' locked safely, failed attempts counter reset to 0. (Verified at 2026-10-01 06:07:24 UTC)\n\nFinal Status:    RESOLVED\n=========================================="
   }
 ]

@@ -15,6 +15,12 @@
             <p class="subtitle">Secure Cloud Application Portal</p>
         </div>
 
+        <!-- ROLE SELECTION TABS -->
+        <div class="role-tabs">
+            <button type="button" class="role-tab active" id="tab-user" onclick="selectRole('USER')">👤 User Login</button>
+            <button type="button" class="role-tab" id="tab-admin" onclick="selectRole('ADMIN')">👑 Admin Login</button>
+        </div>
+
         {% if error %}
         <div class="alert alert-danger" id="error-alert">{{ error }}</div>
         {% endif %}
@@ -24,29 +30,55 @@
         {% endif %}
 
         <form action="/login" method="POST" class="auth-form">
+            <input type="hidden" id="login_role" name="login_role" value="USER">
+
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required placeholder="Enter username (e.g. user or admin)" autofocus>
+                <label for="username" id="username-label">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter username (e.g. user)" autofocus>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" id="password-label">Password</label>
                 <input type="password" id="password" name="password" required placeholder="Enter password">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+            <button type="submit" class="btn btn-primary btn-block" id="login-submit-btn">LOGIN AS USER</button>
         </form>
 
         <div class="auth-footer">
             <p>Don't have an account? <a href="/register">Register</a></p>
             <div class="demo-credentials-box">
                 <strong>🔑 Demo Credentials:</strong><br>
-                <span>User: <code>user</code> / <code>user123</code> (Role: USER)</span><br>
-                <span>Admin: <code>admin</code> / <code>admin123</code> (Role: ADMIN)</span>
+                <span>User Portal: <code>user</code> / <code>user123</code> (Role: USER)</span><br>
+                <span>Admin Portal: <code>admin</code> / <code>admin123</code> (Role: ADMIN)</span>
             </div>
             <div style="margin-top: 15px;">
                 <a href="/dashboard" class="btn btn-sm btn-outline">🌐 View WatchCloud Self-Healing Dashboard</a>
             </div>
         </div>
     </div>
+
+    <script>
+    function selectRole(role) {
+        document.getElementById('login_role').value = role;
+        const tabUser = document.getElementById('tab-user');
+        const tabAdmin = document.getElementById('tab-admin');
+        const submitBtn = document.getElementById('login-submit-btn');
+        const usernameInput = document.getElementById('username');
+
+        if (role === 'ADMIN') {
+            tabUser.classList.remove('active');
+            tabAdmin.classList.add('active');
+            submitBtn.innerText = 'LOGIN AS ADMIN';
+            submitBtn.className = 'btn btn-purple btn-block';
+            usernameInput.placeholder = 'Enter admin username (e.g. admin)';
+        } else {
+            tabAdmin.classList.remove('active');
+            tabUser.classList.add('active');
+            submitBtn.innerText = 'LOGIN AS USER';
+            submitBtn.className = 'btn btn-primary btn-block';
+            usernameInput.placeholder = 'Enter username (e.g. user)';
+        }
+    }
+    </script>
 </body>
 </html>

@@ -23,12 +23,19 @@ def init_db():
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE,
         password_hash TEXT NOT NULL,
         role TEXT NOT NULL DEFAULT 'USER',
         is_locked INTEGER NOT NULL DEFAULT 0,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """)
+
+    # Try adding email column if missing in existing database table
+    try:
+        cursor.execute("ALTER TABLE users ADD COLUMN email TEXT")
+    except Exception:
+        pass
 
     # Create Incidents Table
     cursor.execute("""
@@ -80,16 +87,20 @@ def init_db():
     cursor.execute("SELECT COUNT(*) FROM users WHERE username = 'user'")
     if cursor.fetchone()[0] == 0:
         cursor.execute(
-            "INSERT INTO users (username, password_hash, role, is_locked) VALUES (?, ?, ?, ?)",
-            ("user", hash_password("user123"), "USER", 0)
+            "INSERT INTO users (username, email, password_hash, role, is_locked) VALUES (?, ?, ?, ?, ?)",
+            ("user", "user@watchcloud.io", hash_password("user123"), "USER", 0)
         )
+    else:
+        cursor.execute("UPDATE users SET email = 'user@watchcloud.io' WHERE username = 'user' AND (email IS NULL OR email = '')")
 
     cursor.execute("SELECT COUNT(*) FROM users WHERE username = 'admin'")
     if cursor.fetchone()[0] == 0:
         cursor.execute(
-            "INSERT INTO users (username, password_hash, role, is_locked) VALUES (?, ?, ?, ?)",
-            ("admin", hash_password("admin123"), "ADMIN", 0)
+            "INSERT INTO users (username, email, password_hash, role, is_locked) VALUES (?, ?, ?, ?, ?)",
+            ("admin", "admin@watchcloud.io", hash_password("admin123"), "ADMIN", 0)
         )
+    else:
+        cursor.execute("UPDATE users SET email = 'admin@watchcloud.io' WHERE username = 'admin' AND (email IS NULL OR email = '')")
 
     conn.commit()
     conn.close()
